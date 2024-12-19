@@ -35,7 +35,7 @@ const Home = () => {
       <Row gutter={[16, 16]}>
         {currentData.map((p) => (
           <Col span={8} key={p.id}>
-            <Link to={`/detail/${p.id}`}>
+            <Link to='/detail'>
               <Card
                 hoverable
                 cover={<img alt={p.name} src={p.imageUrl} className="product-image" />}

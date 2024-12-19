@@ -1,15 +1,16 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import Admin from './pages/Admin'
-import Add from './pages/Add'
-import Edit from './pages/Edit'
-import Home from './pages/Home'
-import LayoutAdmin from './layout/LayoutAdmin'
-import Detail from './pages/Detail'
 import { useEffect, useState } from 'react'
 import api from './axios'
-import Register from './pages/Register'
-import Login from './pages/Login'
+import LayoutAdmin from './layout/LayoutAdmin'
+import Admin from './admin/Admin'
+import Add from './admin/Add'
+import Edit from './admin/Edit'
+import Register from './admin/Register'
+import Login from './admin/Login'
+import DetailAd from './admin/DetailAd'
+import Home from './pages/Home'
+import Detail from './pages/Detail'
 import Cart from './pages/Cart'
 import Pay from './pages/Pay'
 
@@ -32,10 +33,11 @@ function App() {
       <Routes>
         <Route path="/" element={<LayoutAdmin/>}>
           <Route index element={<Home data={products}/>}/>
-          <Route path="/detail/:id" element={<Detail/>}/>
+          <Route path="/detail" element={<Detail/>}/>
+          <Route path="/detailad" element={<DetailAd/>}/>
           <Route path="/admin" element={<Admin/>}/>
           <Route path="/add" element={<Add/>}/>
-          <Route path="/edit/:id" element={<Edit/>}/>
+          <Route path="/edit" element={<Edit/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cart" element={<Cart/>}/>
