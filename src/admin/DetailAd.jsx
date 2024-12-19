@@ -88,7 +88,7 @@ const DetailAd = () => {
                         <Descriptions.Item label="Giá niêm yết">
                             {product.price} VNĐ
                         </Descriptions.Item>
-                        <Descriptions.Item label="Số lượng hiện tại">
+                        <Descriptions.Item label="Số lượng">
                             {product.quantity}
                         </Descriptions.Item>
                         <Descriptions.Item label="Mô tả">
