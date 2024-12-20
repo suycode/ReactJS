@@ -12,9 +12,9 @@ const LayoutAdmin = () => {
 
   const menuItems = [
     {
-      key: "admin",
+      key: "list-pr",
       icon: <BookOutlined />,
-      label: <Link to="/admin">Quản lý sản phẩm</Link>,
+      label: <Link to="/list-pr">Quản lý sản phẩm</Link>,
     },
     {
       key: "register",
@@ -29,7 +29,7 @@ const LayoutAdmin = () => {
     {
       key: "home",
       icon: <HomeOutlined />,
-      label: <Link to="/">Trang chủ</Link>,
+      label: <Link to="/home">Trang chủ</Link>,
     },
     {
       key: "cart",

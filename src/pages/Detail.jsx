@@ -44,26 +44,51 @@ const Detail = () => {
 
   return (
     <div>
-      <h1 style={{ fontSize: '2rem', color:"gray" }} className="mb-5"> 
-        <EyeOutlined style={{ marginRight: '8px' }} />Chi tiết sản phẩm
+      <h1 className="mb-5" style={{ color:'gray'}}>
+        <EyeOutlined style={{ marginRight: '8px'}} />Chi tiết sản phẩm
       </h1>
-      <Row gutter={16} align="middle">
-        <Col span={12} className="product-image-container">
-          <Image
-            width={400} 
-            src={product.imageUrl}
-            alt={product.name}
-            className="product-image"
-            placeholder={<Image preview={false} src="fallback-image-url" width={400} />}
-          />
+      <Row gutter={16} align="middle" style={{ textAlign: 'left' }}>
+        <Col span={10} className="product-grid">
+            {product.imageUrls && product.imageUrls.length > 0 ? (
+              <div className="grid-container">
+                {product.imageUrls.map((url, index) => (
+                  <Image
+                    key={index}
+                    src={url}
+                    alt={`Ảnh sản phẩm ${index + 1}`}
+                    className="grid-item"
+                    preview
+                  />
+                    ))}
+                </div>
+            ) : product.imageUrl ? (
+                <div className="grid-container">
+                  <Image
+                    src={product.imageUrl}
+                    alt="Ảnh sản phẩm"
+                    className="grid-item"
+                    preview
+                  />
+                </div>
+            ) : (
+              <p>Không có ảnh sản phẩm</p>
+            )}
         </Col>
 
         <Col span={12}>
-          <Descriptions title="Thông tin sản phẩm" bordered column={1}>
-            <Descriptions.Item label="Tên sản phẩm">{product.name}</Descriptions.Item>
-            <Descriptions.Item label="Giá niêm yết">{product.price} VNĐ</Descriptions.Item>
-            <Descriptions.Item label="Mô tả">{product.description}</Descriptions.Item>
-            <Descriptions.Item label="Số lượng tại cửa hàng">{product.quantity}</Descriptions.Item>
+          <Descriptions title="Thông tin sản phẩm" bordered column={1} className="custom-description">
+            <Descriptions.Item label="Tên sản phẩm">
+              {product.name}
+            </Descriptions.Item>
+            <Descriptions.Item label="Giá niêm yết">
+              {product.price} VNĐ
+            </Descriptions.Item>
+            <Descriptions.Item label="Số lượng">
+              {product.quantity}
+            </Descriptions.Item>
+            <Descriptions.Item label="Mô tả">
+              {product.description}
+            </Descriptions.Item>
           </Descriptions>
 
           <div className="soluong">

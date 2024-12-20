@@ -5,7 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { BookOutlined, PlusOutlined } from "@ant-design/icons";
 
-const Admin = () => {
+const List = () => {
     const queryClient = useQueryClient();
     const { data, isLoading } = useQuery({
         queryKey: ["products"],
@@ -117,7 +117,7 @@ const Admin = () => {
                     </Link>
                     <Divider />
 
-                    <Link to='/edit' style={{ ...linkStyle, color: 'blue' }}>
+                    <Link to='/edit-pr' style={{ ...linkStyle, color: 'blue' }}>
                         Cập nhật
                     </Link>
                     <Divider />
@@ -140,7 +140,7 @@ const Admin = () => {
                 <BookOutlined style={{ marginRight: '8px' }} />
                 Quản lý sản phẩm
             </h1>
-            <Link to="/add">
+            <Link to="/add-pr">
                 <Button
                     type="primary"
                     style={{ backgroundColor: '#388E3C' }}
@@ -160,4 +160,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default List;

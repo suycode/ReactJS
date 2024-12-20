@@ -49,8 +49,8 @@ const DetailAd = () => {
 
     return (
         <div>
-            <h1 className="mb-5">
-                <EyeOutlined style={{ marginRight: '8px' }} />Chi tiết sản phẩm
+            <h1 className="mb-5" style={{ color:'purple'}}>
+                <EyeOutlined style={{ marginRight: '8px'}} />Chi tiết sản phẩm
             </h1>
             <Row gutter={16} align="middle" style={{ textAlign: 'left' }}>
                 <Col span={10} className="product-grid">
@@ -96,7 +96,7 @@ const DetailAd = () => {
                         </Descriptions.Item>
                     </Descriptions>
 
-                    <Link to='/edit'>
+                    <Link to='/edit-pr'>
                         <Button 
                             type="primary" 
                             size="large" 

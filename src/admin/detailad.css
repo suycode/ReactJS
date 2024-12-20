@@ -28,11 +28,6 @@
     text-align: left;
 }
 
-h1 {
-    font-size: 2rem;
-    color: purple;
-}
-
 .product-grid {
     display: flex;
     justify-content: center;

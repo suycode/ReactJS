@@ -3,19 +3,18 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "./axios";
 import LayoutAdmin from "./Layout/LayoutAdmin";
-
-import Cart from "./Pages/Cart";
-import Pay from "./Pages/Pay";
-import LayoutPage from "./Layout/LayoutPage";
-import Product from "./Pages/Product";
-import DetailProduct from "./Pages/DetailProduct";
-import Signin from "./Pages/Signin";
-import Signup from "./Pages/Signup";
-import AddProduct from "./Admin/Product/AddProduct";
-import EditProduct from "./Admin/Product/EditProduct";
-import ListCategory from "./Admin/Category/ListCategory";
-import AddCategory from "./Admin/Category/AddCategory";
-import EditCategory from "./Admin/Category/EditCategory";
+import DetailAd from './admin/DetailAd';
+import List from "./admin/product/List";
+import Edit from './admin/product/Edit';
+import Add from './admin/product/Add';
+import Register from './admin/Register';
+import Login from './admin/Login';
+import HomePage from './pages/HomePage';
+import Cart from './pages/Cart';
+import Pay from './pages/Pay';
+import Detail from './pages/Detail';
+import Signin from './pages/Signin';
+import Signup from './pages/Signup';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -33,38 +32,25 @@ function App() {
 
   return (
     <>
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<LayoutAdmin />}>
-          <Route index element={<Home data={products} />} />
-          <Route path="/detail" element={<Detail />} />
           <Route path="/detailad" element={<DetailAd />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/add" element={<Add />} />
-          <Route path="/edit" element={<Edit />} />
+          <Route path="/list-pr" element={<List />} />
+          <Route path="/add-pr" element={<Add />} />
+          <Route path="/edit-pr" element={<Edit />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+        </Route>
+      </Routes>
+
+      <Routes>
+        <Route path="/" element={<LayoutAdmin />}>
+          <Route path="/home" element={<HomePage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/pay" element={<Pay />} />
-        </Route>
-      </Routes> */}
-      <Routes>
-        <Route path="/" element={<LayoutPage />}>
-          <Route index element={<HomePage />} />
-          <Route path="product" element={<Product />} />
-          <Route path="detail-product" element={<DetailProduct />} />
-          <Route path="signup" element={<Signup />} />
-          <Route path="signin" element={<Signin />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="/pay" element={<Pay />} />
-        </Route>
-        <Route path="/admin" element={<LayoutAdmin />}>
-          <Route index element={<HomeAdmin />} />
-          <Route path="product/add" element={<AddProduct />} />
-          <Route path="list-product" element={<ListProduct />} />
-          <Route path="product/edit/:id" element={<EditProduct />} />
-          <Route path="listcate" element={<ListCategory />} />
-          <Route path="cate/add" element={<AddCategory />} />
-          <Route path="cate/edit/:id" element={<EditCategory />} />
+          <Route path="/detail-pr" element={<Detail />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
         </Route>
       </Routes>
     </>

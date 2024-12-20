@@ -35,7 +35,7 @@ const HomePage = () => {
       <Row gutter={[16, 16]}>
         {currentData.map((p) => (
           <Col span={8} key={p.id}>
-            <Link to="/detail">
+            <Link to="/detail-pr">
               <Card
                 hoverable
                 cover={
