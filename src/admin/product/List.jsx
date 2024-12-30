@@ -1,9 +1,10 @@
 import React from "react";
-import { Button, Image, notification, Skeleton, Space, Table, Modal } from "antd";
+import { Button, Image, notification, Skeleton, Table, Modal, Form, Select } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { BookOutlined, PlusOutlined } from "@ant-design/icons";
+import { BookOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import './list.css';
 
 const List = () => {
     const queryClient = useQueryClient();
@@ -53,29 +54,18 @@ const List = () => {
         });
     };
 
-    const Divider = () => (
-        <div
-            style={{
-                height: "20px",
-                width: "1.5px",
-                backgroundColor: "black",
-                margin: "0 8px",
-            }}
-        />
-    );
-
-    const linkStyle = {
-        textDecoration: "none",
-        fontWeight: "bold",
-    };
-
     const columns = [
+        {
+            title:"",
+            render:() => { return <input className="tick" type="checkbox" />},
+            align: "center"
+        },
         {
             title: "Ảnh",
             dataIndex: "imageUrl",
             key: "imageUrl",
             render: (_, item) => {
-                return <Image width={100} src={item.imageUrl} />;
+                return <Image width={60} src={item.imageUrl} />;
             },
             align: "center",
         },
@@ -87,7 +77,7 @@ const List = () => {
             align: "center",
         },
         {
-            title: "Giá (VNĐ)",
+            title: "Giá bán (VNĐ)",
             key: "price",
             dataIndex: "price",
             align: "center",
@@ -111,23 +101,22 @@ const List = () => {
             title: "Thao tác",
             key: "action",
             render: (_, item) => (
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <Link to='/detailad' style={{ ...linkStyle, color: 'purple' }}>
+                <div className="action-container">
+                    <Link to='/detailad' className="action-link action-link-purple">
                         Chi tiết
                     </Link>
-                    <Divider />
+                    <div className="divider"></div>
 
-                    <Link to='/edit-pr' style={{ ...linkStyle, color: 'blue' }}>
+                    <Link to='/edit-pr' className="action-link action-link-blue">
                         Cập nhật
                     </Link>
-                    <Divider />
 
-                    <span
-                        style={{ ...linkStyle, cursor: "pointer", color: "red" }}
+                    {/* <span
+                        className="action-link action-link-red"
                         onClick={() => deleteConfirm(item.id)}
                     >
                         Xóa
-                    </span>
+                    </span> */}
                 </div>
             ),
             align: "center",
@@ -136,19 +125,41 @@ const List = () => {
 
     return (
         <>
-            <h1 style={{ fontSize: '2rem', color: "purple" }} className="mb-5">
+            <h1 className="page-title">
                 <BookOutlined style={{ marginRight: '8px' }} />
-                Quản lý sản phẩm
+                Danh sách sản phẩm
             </h1>
-            <Link to="/add-pr">
-                <Button
-                    type="primary"
-                    style={{ backgroundColor: '#388E3C' }}
-                    icon={<PlusOutlined />}
-                >
-                    Thêm sản phẩm
-                </Button>
-            </Link>
+
+            <div className="btn">
+                <Form.Item label="Danh mục" name="category" className="select-item">
+                    <Select>
+                        <Select.Option>Điện thoại</Select.Option>
+                        <Select.Option>Máy tính</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <div className="btn-group">
+                    <Link to="/add-pr">
+                        <Button
+                            color="primary" 
+                            variant="solid"
+                            icon={<PlusOutlined />}
+                        >
+                            Thêm sản phẩm
+                        </Button>
+                    </Link>
+
+                    <Button
+                        color="danger" 
+                        variant="solid"
+                        icon={<DeleteOutlined />}
+                    >
+                        Xóa sản phẩm
+                    </Button>
+                </div>
+            </div>
+
+            
             <Skeleton active loading={isLoading}>
                 <Table
                     columns={columns}

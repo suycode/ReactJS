@@ -3,7 +3,7 @@
 }
 .mb-5{
     font-size: 2rem;
-    
+    color: blue;
 }
 .col-item {
     padding: 8px;
@@ -19,6 +19,7 @@
 h2 {
     margin-top: 20px;
     font-size: 24px;
+    color: blue;
 }
 .add{
     margin-top: 20px;

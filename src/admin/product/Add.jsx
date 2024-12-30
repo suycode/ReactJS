@@ -32,7 +32,7 @@ const Add = () => {
                         <Form.Item
                             label="Giá nhập"
                             rules={[
-                                { required: true, message: "Vui lòng nhập giá nhập sản phẩm" }, 
+                                { required: true, message: "Vui lòng nhập giá nhập của sản phẩm" }, 
                                 { type: "number", min: 0, message: "Không được để số âm" }
                             ]}
                         >
@@ -89,7 +89,7 @@ const Add = () => {
             <h2>Các biến thể</h2>
             {variants.map((variant, index) => (
                 <Form
-                    key={variant.id} // Mỗi biến thể có key duy nhất
+                    key={variant.id}
                     name={`variant_${variant.id}`}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 24 }}
@@ -121,9 +121,12 @@ const Add = () => {
                         <Col span={6} className="col-item">
                             <Form.Item
                                 label="Số lượng"
-                                rules={[{ required: true, message: "Vui lòng nhập số lượng" }]}
+                                rules={[
+                                    { required: true, message: "Vui lòng nhập số lượng" },
+                                    { type: "number", min: 1, message: "Không được để số âm" }
+                                ]}
                             >
-                                <InputNumber className="input-item" min={1} />
+                                <InputNumber className="input-item" />
                             </Form.Item>
                         </Col>
 
