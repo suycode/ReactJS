@@ -3,18 +3,19 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "./axios";
 import LayoutAdmin from "./Layout/LayoutAdmin";
-import DetailAd from './admin/DetailAd';
+import DetailAd from "./admin/DetailAd";
 import List from "./admin/product/List";
-import Edit from './admin/product/Edit';
-import Add from './admin/product/Add';
-import Register from './admin/Register';
-import Login from './admin/Login';
-import HomePage from './pages/HomePage';
-import Cart from './pages/Cart';
-import Pay from './pages/Pay';
-import Detail from './pages/Detail';
-import Signin from './pages/Signin';
-import Signup from './pages/Signup';
+import Edit from "./admin/product/Edit";
+import Add from "./admin/product/Add";
+import Register from "./admin/Register";
+import Login from "./admin/Login";
+import HomePage from "./Pages/HomePage";
+import Cart from "./pages/Cart";
+import Pay from "./pages/Pay";
+import Detail from "./pages/Detail";
+import Signin from "./pages/Signin";
+import Signup from "./pages/Signup";
+import LayoutPage from "./Layout/LayoutPage";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -44,7 +45,7 @@ function App() {
       </Routes>
 
       <Routes>
-        <Route path="/" element={<LayoutAdmin />}>
+        <Route path="/" element={<LayoutPage />}>
           <Route path="/home" element={<HomePage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/pay" element={<Pay />} />
