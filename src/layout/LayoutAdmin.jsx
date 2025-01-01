@@ -17,6 +17,11 @@ const LayoutAdmin = () => {
       label: <Link to="/list-pr">Quản lý sản phẩm</Link>,
     },
     {
+      key: "category",
+      icon: <BilibiliFilled />,
+      label: <Link to="/categories">Thể Loại</Link>,
+    },
+    {
       key: "bill",
       icon: <BilibiliFilled />,
       label: <Link to="/bill">Hóa đơn</Link>,
