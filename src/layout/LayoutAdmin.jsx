@@ -78,6 +78,7 @@ const LayoutAdmin = () => {
             background: colorBgContainer,
           }}
         />
+           
         <Content
           style={{
             margin: "24px 16px 0",
@@ -95,7 +96,7 @@ const LayoutAdmin = () => {
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>Design by quang0suy</Footer>
+        <Footer style={{ textAlign: "center" }}>Design by Group FE</Footer>
       </Layout>
     </Layout>
   );
