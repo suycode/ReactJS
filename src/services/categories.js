@@ -1,8 +1,8 @@
-import axios from "axios"
+import instance from "../axios"
 
 const fetchCategories = async () => {
     try {
-        const { data } = await axios.get('http://localhost:3000/categories')
+        const { data } = await instance.get('/categories')
         return data
     } catch (error) {
         console.log(error)
@@ -10,7 +10,7 @@ const fetchCategories = async () => {
 }
 const createCategory = async (payload) => {
     try {
-        const { data } = await axios.post('http://localhost:3000/categories', payload)
+        const { data } = await instance.post('/categories', payload)
         return data
     } catch (error) {
         console.log(error)
