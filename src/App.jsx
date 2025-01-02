@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import api from "./axios";
 import LayoutAdmin from "./Layout/LayoutAdmin";
 import DetailAd from "./Admin/DetailAd";
-import List from "./admin/product/List";
+import List from "./Admin/product/List";
 import Edit from "./admin/product/Edit";
 import Add from "./admin/product/Add";
 import Register from "./admin/Register";

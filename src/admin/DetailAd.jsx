@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../axios";
 import { Link, useParams, useNavigate } from "react-router-dom";
+
+import { Table } from "antd";
 import {
   Descriptions,
   Row,
@@ -54,6 +56,53 @@ const DetailAd = () => {
       onOk: onDelete,
     });
   };
+  const dataSource = [
+    {
+      key: "1",
+      size: "S",
+      color: "Red",
+      quantity: 10,
+    },
+    {
+      key: "2",
+      size: "S",
+      color: "blue",
+      quantity: 10,
+    },
+    {
+      key: "3",
+      size: "M",
+      color: "Red",
+      quantity: 10,
+    },
+    {
+      key: "4",
+      size: "M",
+      color: "Blue",
+      quantity: 10,
+    },
+  ];
+
+  const columns = [
+    {
+      title: "Size",
+      dataIndex: "size",
+      key: "size",
+    },
+    {
+      title: "Color",
+      dataIndex: "color",
+      key: "color",
+    },
+    {
+      title: "Quantity",
+      dataIndex: "quantity",
+      key: "quantity",
+    },
+    {
+      title: "Action",
+    },
+  ];
 
   return (
     <div>
@@ -179,6 +228,12 @@ const DetailAd = () => {
           Xóa
         </Button>
       </Row>
+      <Table
+        dataSource={dataSource}
+        columns={columns}
+        style={{ marginTop: "20px" }}
+      />
+      ;
     </div>
   );
 };
