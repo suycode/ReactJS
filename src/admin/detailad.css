@@ -33,3 +33,7 @@
   justify-content: center;
   align-items: flex-start;
 }
+
+.col {
+  height: 516px;
+}

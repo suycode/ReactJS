@@ -9,12 +9,14 @@ import Edit from "./admin/product/Edit";
 import Add from "./admin/product/Add";
 import Register from "./admin/Register";
 import Login from "./admin/Login";
-import HomePage from "./Pages/HomePage";
+import HomePage from "./pages/HomePage";
 import Cart from "./pages/Cart";
 import Pay from "./pages/Pay";
 import Detail from "./pages/Detail";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
+import Bill from "./admin/Bill";
+import Inbox from "./admin/Inbox";
 import LayoutPage from "./Layout/LayoutPage";
 
 function App() {

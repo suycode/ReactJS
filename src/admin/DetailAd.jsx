@@ -21,7 +21,7 @@ const DetailAd = () => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await api.get(`/products/${id}`);
+        const { data } = await api.get(`http://localhost:3000/products/${id}`);
         setProduct(data);
       } catch (error) {
         console.log(error);
@@ -97,33 +97,50 @@ const DetailAd = () => {
             className="custom-description"
           >
             <Descriptions.Item label="Mã sản phẩm">
+              {"1"}
               {product.name}
             </Descriptions.Item>
             <Descriptions.Item label="Danh mục sản phẩm">
+              {"Áo"}
               {product.price}
             </Descriptions.Item>
-            <Descriptions.Item label="Số lượng còn lại">
-              {product.quantity}
+            <Descriptions.Item label="Tên sản phẩm">
+              {"Áo thun nam phong cách mck"}
+              {product.price}
             </Descriptions.Item>
+
             <Descriptions.Item label="Size">
+              {"S"}
               {product.description}
             </Descriptions.Item>
             <Descriptions.Item label="Màu sắc">
+              {"Vàng"}
               {product.description}
             </Descriptions.Item>
           </Descriptions>
         </Col>
         <Col span={8} className="col">
-          <Descriptions bordered column={1} className="custom-description">
+          <Descriptions
+            bordered
+            column={1}
+            className="custom-description"
+            title="ㅤ"
+          >
+            <Descriptions.Item label="Số lượng còn lại">
+              {"10"}
+              {product.quantity}
+            </Descriptions.Item>
             <Descriptions.Item label="Giá bán">
+              {"1.000.000"}
               {product.price} VNĐ
             </Descriptions.Item>
 
             <Descriptions.Item label="Mô tả">
+              {
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, numquam."
+              }
               {product.description}
             </Descriptions.Item>
-
-            <Descriptions.Item></Descriptions.Item>
           </Descriptions>
         </Col>
         <Link to="/edit-pr">
