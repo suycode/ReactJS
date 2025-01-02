@@ -26,5 +26,13 @@ h2 {
     text-align: center;
 }
 .btn-item{
-    margin-top: 16px;
+    margin-top: 10px;
+}
+.attribute{
+    margin-bottom: 20px;
+}
+.fill{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
 }
