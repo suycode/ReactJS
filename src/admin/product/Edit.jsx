@@ -1,79 +1,27 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { Button, Col, Form, Input, InputNumber, notification, Row, Select, Upload } from "antd";
+import React, { useState } from "react";
+import { Button, Form, Input, InputNumber, Select, Upload, Row, Col } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import axios from "axios";
-import { EditOutlined, PlusOutlined } from "@ant-design/icons";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { PlusOutlined } from "@ant-design/icons";
+import './add.css';  
 
 const Edit = () => {
-    const [imageUrl, setImageUrl] = useState("");
-    const [form] = Form.useForm();
-    const queryClient = useQueryClient();
-    const navigate = useNavigate();
-    const { id } = useParams(); 
-
-    useEffect(() => {
-        const fetchProduct = async () => {
-            const response = await axios.get(`http://localhost:3000/products/${id}`);
-            const product = response.data;
-            setImageUrl(product.imageUrl);
-            form.setFieldsValue(product);
-        };
-        fetchProduct();
-    }, [id, form]);
-
-    const { mutate, isPending } = useMutation({
-        mutationFn: async (product) => {
-            return await axios.put(`http://localhost:3000/products/${id}`, product);
-        },
-        onSuccess: () => {
-            notification.success({
-                message: "Cập nhật sản phẩm thành công!",
-                description: "Sản phẩm đã được cập nhật.",
-            });
-            queryClient.invalidateQueries({
-                queryKey: ["products"],
-            });
-            navigate("/admin"); 
-        },
-    });
-
-    const normFile = (e) => {
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e?.fileList;
-    };
-
-    const onHandleChange = (info) => {
-        if (info.file.status === "done") {
-            setImageUrl(info.file.response.secure_url);
-        }
-    };
-
-    const onFinish = (values) => {
-        if (!imageUrl) return;
-        mutate({ ...values, imageUrl });
+    const [variants, setVariants] = useState([{ id: 1 }]);
+    const addVariant = () => {
+        setVariants([...variants, { id: variants.length + 1 }]);
     };
 
     return (
-        <div>
-            <h1 className="mb-5" style={{color:'blue'}}>
-                <EditOutlined style={{ marginRight: '8px' }} />
-                Cập nhật sản phẩm
-            </h1>
+        <div className="container">
+            <h1 className="mb-5">Cập nhật sản phẩm</h1>
+
             <Form
                 name="basic"
-                form={form}
                 labelCol={{ span: 24 }} 
                 wrapperCol={{ span: 24 }} 
-                onFinish={onFinish}
-                disabled={isPending}
                 labelAlign="top" 
             >
                 <Row gutter={24}>
-                    <Col span={12} className="col-item">
+                    <Col span={8} className="col-item">
                         <Form.Item
                             label="Tên sản phẩm"
                             rules={[{ required: true, message: "Vui lòng nhập tên sản phẩm" }]}
@@ -82,9 +30,9 @@ const Edit = () => {
                         </Form.Item>
 
                         <Form.Item
-                            label="Giá sản phẩm"
+                            label="Giá nhập"
                             rules={[
-                                { required: true, message: "Vui lòng nhập giá sản phẩm" }, 
+                                { required: true, message: "Vui lòng nhập giá nhập của sản phẩm" }, 
                                 { type: "number", min: 0, message: "Không được để số âm" }
                             ]}
                         >
@@ -92,10 +40,10 @@ const Edit = () => {
                         </Form.Item>
 
                         <Form.Item
-                            label="Số lượng sản phẩm"
+                            label="Giá bán"
                             rules={[
-                                { required: true, message: "Vui lòng nhập số lượng sản phẩm" }, 
-                                { type: "number", min: 1, message: "Số lượng phải lớn hơn hoặc bằng 1" }
+                                { required: true, message: "Vui lòng nhập giá bán của sản phẩm" }, 
+                                { type: "number", min: 0, message: "Không được để số âm" }
                             ]}
                         >
                             <InputNumber className="input-item" />
@@ -109,7 +57,7 @@ const Edit = () => {
                         </Form.Item>
                     </Col>
 
-                    <Col span={12} className="col-item">
+                    <Col span={16} className="col-item">
                         <Form.Item
                             label="Ảnh sản phẩm"
                             valuePropName="fileList"
@@ -120,10 +68,7 @@ const Edit = () => {
                                 multiple
                             >
                                 <button
-                                    style={{
-                                        border: 0,
-                                        background: "none",
-                                    }}
+                                    className="upload-button"
                                     type="button"
                                 >
                                     <PlusOutlined />
@@ -131,24 +76,84 @@ const Edit = () => {
                                 </button>
                             </Upload>
                         </Form.Item>
+
                         <Form.Item label="Mô tả sản phẩm" name="description">
                             <TextArea rows={8} className="input-item" />
                         </Form.Item>
                     </Col>
                 </Row>
-
-                <Form.Item>
-                    <Button
-                        type="primary"
-                        htmlType="submit"
-                        size="large"
-                        className="btn-item"
-                        style={{backgroundColor:'blue'}}
-                    >
-                        Cập nhật
-                    </Button>
-                </Form.Item>
             </Form>
+
+            <hr />
+
+            <h2>Các biến thể</h2>
+            {variants.map((variant, index) => (
+                <Form
+                    key={variant.id} // Mỗi biến thể có key duy nhất
+                    name={`variant_${variant.id}`}
+                    labelCol={{ span: 24 }}
+                    wrapperCol={{ span: 24 }}
+                    labelAlign="top"
+                >
+                    <Row gutter={24} align="middle">
+                        <Col span={6} className="col-item">
+                            <Form.Item label="Size" name={`size_${variant.id}`}>
+                                <Select className="input-item">
+                                    <Select.Option>XS</Select.Option>
+                                    <Select.Option>S</Select.Option>
+                                    <Select.Option>M</Select.Option>
+                                    <Select.Option>L</Select.Option>
+                                    <Select.Option>XL</Select.Option>
+                                    <Select.Option>XXL</Select.Option>
+                                </Select>
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={6} className="col-item">
+                            <Form.Item
+                                label="Màu"
+                                rules={[{ required: true, message: "Vui lòng nhập màu sắc" }]}
+                            >
+                                <Input className="input-item" />
+                            </Form.Item>
+                        </Col>
+
+                        <Col span={6} className="col-item">
+                            <Form.Item
+                                label="Số lượng"
+                                rules={[{ required: true, message: "Vui lòng nhập số lượng" }]}
+                            >
+                                <InputNumber className="input-item" min={1} />
+                            </Form.Item>
+                        </Col>
+
+                        {index === variants.length - 1 && ( 
+                            <Col span={6} className="col-item">
+                                <Button
+                                    type="primary"
+                                    icon={<PlusOutlined />}
+                                    size="large"
+                                    onClick={addVariant}
+                                    className="btn-item"
+                                >
+                                    Thêm biến thể
+                                </Button>
+                            </Col>
+                        )}
+                    </Row>
+                </Form>
+            ))}
+
+            <div className="add">
+                <Button 
+                    type="primary" 
+                    size="large" 
+                    htmlType="submit"
+                    className="btn-item"
+                >
+                    Cập nhật
+                </Button>
+            </div>
         </div>
     );
 };
