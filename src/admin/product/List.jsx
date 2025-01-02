@@ -61,19 +61,19 @@ const List = () => {
             align: "center"
         },
         {
-            title: "Ảnh",
+            title: "Tên sản phẩm",
+            dataIndex: "name",
+            key: "name",
+            render: (text) => <a>{text}</a>,
+            align: "center",
+        },
+        {
+            title: "Ảnh sản phẩm",
             dataIndex: "imageUrl",
             key: "imageUrl",
             render: (_, item) => {
                 return <Image width={60} src={item.imageUrl} />;
             },
-            align: "center",
-        },
-        {
-            title: "Tên sản phẩm",
-            dataIndex: "name",
-            key: "name",
-            render: (text) => <a>{text}</a>,
             align: "center",
         },
         {

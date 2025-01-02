@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "./axios";
 import LayoutAdmin from "./Layout/LayoutAdmin";
-import DetailAd from "./admin/DetailAd";
+import DetailAd from "./Admin/DetailAd";
 import List from "./admin/product/List";
 import Edit from "./admin/product/Edit";
 import Add from "./admin/product/Add";
@@ -39,6 +39,8 @@ function App() {
           <Route path="/list-pr" element={<List />} />
           <Route path="/add-pr" element={<Add />} />
           <Route path="/edit-pr" element={<Edit />} />
+          <Route path="/bill" element={<Bill />} />
+          <Route path="/inbox" element={<Inbox />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Route>

@@ -1,0 +1,63 @@
+/* Container chính của khung chat */
+.chat-container {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Tiêu đề hộp chat */
+.chat-header {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Danh sách tin nhắn */
+.chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+/* Tin nhắn */
+.chat-message {
+    display: flex;
+    align-items: center;
+}
+
+/* Avatar */
+.avatar-sent {
+    background-color: #87d068;
+}
+
+.avatar-received {
+    background-color: #1890ff;
+}
+
+/* Nội dung tin nhắn */
+.chat-bubble {
+    padding: 8px 12px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+/* Tin nhắn người gửi */
+.chat-bubble.sent {
+    background-color: #f6ffed;
+    align-self: flex-end;
+}
+
+/* Tin nhắn người nhận */
+.chat-bubble.received {
+    background-color: #e6f7ff;
+    align-self: flex-start;
+}
+
+/* Input và nút gửi tin nhắn */
+.chat-input {
+    display: flex;
+    gap: 8px;
+}

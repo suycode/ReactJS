@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
-import { HomeOutlined, BookOutlined, FormOutlined, UserOutlined, ShoppingCartOutlined } from "@ant-design/icons";
+import { HomeOutlined, BookOutlined, FormOutlined, UserOutlined, ShoppingCartOutlined, BilibiliFilled, MessageOutlined } from "@ant-design/icons";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -17,6 +17,16 @@ const LayoutAdmin = () => {
       label: <Link to="/list-pr">Quản lý sản phẩm</Link>,
     },
     {
+      key: "bill",
+      icon: <BilibiliFilled />,
+      label: <Link to="/bill">Hóa đơn</Link>,
+    },
+    {
+      key: "inbox",
+      icon: <MessageOutlined />,
+      label: <Link to="/inbox">Tin nhắn</Link>,
+    },
+    {
       key: "register",
       icon: <FormOutlined />,
       label: <Link to="/register">Đăng ký</Link>,
@@ -30,11 +40,6 @@ const LayoutAdmin = () => {
       key: "home",
       icon: <HomeOutlined />,
       label: <Link to="/home">Trang chủ</Link>,
-    },
-    {
-      key: "cart",
-      icon: <ShoppingCartOutlined />,
-      label: <Link to="/cart">Giỏ hàng</Link>,
     },
   ];
 
