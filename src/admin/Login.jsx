@@ -7,7 +7,7 @@ const Login = () => {
   return (
     <div>
       <h1 className="register-title">
-        <LoginOutlined />
+        <LoginOutlined className="icon-spacing"/>
         Đăng nhập
       </h1>
       <Form
