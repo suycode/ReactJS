@@ -1,7 +1,5 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import api from "./axios";
 import LayoutAdmin from "./Layout/LayoutAdmin";
 import DetailAd from "./Admin/DetailAd";
 import List from "./Admin/product/List";
@@ -15,25 +13,12 @@ import Pay from "./pages/Pay";
 import Detail from "./pages/Detail";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
-import Bill from "./admin/Bill";
 import Inbox from "./admin/Inbox";
 import Categories from "./admin/category";
 import LayoutPage from "./Layout/LayoutPage";
 import BillList from "./admin/bill/BillList";
 
 function App() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await api.get("/products");
-        setProducts(data);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  }, []);
 
   return (
     <>
