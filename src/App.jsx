@@ -17,7 +17,11 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Bill from "./admin/Bill";
 import Inbox from "./admin/Inbox";
+<<<<<<< HEAD
+import Categories from "./admin/category";
+=======
 import LayoutPage from "./Layout/LayoutPage";
+>>>>>>> 099036fb774e1c3995c52ab8446062036a240f97
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -41,6 +45,7 @@ function App() {
           <Route path="/list-pr" element={<List />} />
           <Route path="/add-pr" element={<Add />} />
           <Route path="/edit-pr" element={<Edit />} />
+          <Route path="/categories" element={<Categories />} />
           <Route path="/bill" element={<Bill />} />
           <Route path="/inbox" element={<Inbox />} />
           <Route path="/register" element={<Register />} />

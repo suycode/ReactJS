@@ -88,15 +88,15 @@ const List = () => {
             dataIndex: "quantity",
             align: "center",
         },
-        // {
-        //     title: "Danh mục",
-        //     dataIndex: "category",
-        //     key: "category",
-        //     render: (_, item) => {
-        //         return <span>{item.category === "idCategory1" ? "Điện thoại" : "Máy tính"}</span>;
-        //     },
-        //     align: "center",
-        // },
+        {
+            title: "Danh mục",
+            dataIndex: "category",
+            key: "category",
+            render: (_, item) => {
+                return <span>{item.category === "idCategory1" ? "Điện thoại" : "Máy tính"}</span>;
+            },
+            align: "center",
+        },
         {
             title: "Thao tác",
             key: "action",
@@ -131,17 +131,10 @@ const List = () => {
             </h1>
 
             <div className="btn">
-                <Form.Item label="Danh mục cha" name="category" className="select-item">
+                <Form.Item label="Danh mục" name="category" className="select-item">
                     <Select>
-                        <Select.Option>Áo</Select.Option>
-                        <Select.Option>Quần</Select.Option>
-                    </Select>
-                </Form.Item>
-                <Form.Item label="Danh mục con" className="select-item">
-                    <Select>
-                        <Select.Option>Áo sơ mi</Select.Option>
-                        <Select.Option>Áo polo</Select.Option>
-                        <Select.Option>Áo khoác</Select.Option>
+                        <Select.Option>Điện thoại</Select.Option>
+                        <Select.Option>Máy tính</Select.Option>
                     </Select>
                 </Form.Item>
 
