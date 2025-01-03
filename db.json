@@ -180,5 +180,27 @@
       ],
       "address": "101 Đường JKL, Cần Thơ"
     }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Nam",
+      "parentId": null
+    },
+    {
+      "id": 2,
+      "name": "Nữ",
+      "parentId": null
+    },
+    {
+      "name": "quần nam",
+      "parentId": "1",
+      "id": 3
+    },
+    {
+      "name": "váy",
+      "parentId": "2",
+      "id": 4
+    }
   ]
 }
