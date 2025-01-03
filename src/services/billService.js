@@ -1,10 +1,10 @@
-import axios from "axios";
+import instance from "../axios";
 
 const getBills = async () => {
-    const response = await axios.get("http://localhost:3000/bills");
+    const response = await instance.get("/bills");
     return response.data;
 };
 
-export default {
+export const billServices = {
     getBills
-  };
+};

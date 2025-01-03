@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import BillDetail from "./BillDetail";
-import billService from "../../services/billService";
 import { Button, Table, Modal } from "antd";
 import { EyeOutlined, PrinterOutlined } from "@ant-design/icons";
 import convertDateToVietnameseFormat from './../../utils/convertDate';
 import Barcode from "react-barcode";
 import { useReactToPrint } from "react-to-print";
+import { billServices } from "../../services/billService";
 
 const BillList = () => {
   const contentRef = useRef(null);
@@ -70,7 +69,8 @@ const BillList = () => {
   ]
 
   const fetchBills = async () => {
-    billService.getBills().then((data) => setBills(data));
+    const response = await billServices.getBills();
+    setBills(response);
   }
 
   useEffect(() => {
