@@ -17,11 +17,8 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Bill from "./admin/Bill";
 import Inbox from "./admin/Inbox";
-<<<<<<< HEAD
 import Categories from "./admin/category";
-=======
 import LayoutPage from "./Layout/LayoutPage";
->>>>>>> 099036fb774e1c3995c52ab8446062036a240f97
 
 function App() {
   const [products, setProducts] = useState([]);
