@@ -19,6 +19,7 @@ import Bill from "./admin/Bill";
 import Inbox from "./admin/Inbox";
 import Categories from "./admin/category";
 import LayoutPage from "./Layout/LayoutPage";
+import BillList from "./admin/bill/BillList";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -36,14 +37,15 @@ function App() {
 
   return (
     <>
+
       <Routes>
         <Route path="/" element={<LayoutAdmin />}>
           <Route path="/detailad" element={<DetailAd />} />
           <Route path="/list-pr" element={<List />} />
           <Route path="/add-pr" element={<Add />} />
           <Route path="/edit-pr" element={<Edit />} />
+          <Route path="/bill" element={<BillList />} />
           <Route path="/categories" element={<Categories />} />
-          <Route path="/bill" element={<Bill />} />
           <Route path="/inbox" element={<Inbox />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
